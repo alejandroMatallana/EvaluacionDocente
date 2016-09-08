@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.titulo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 80px;
+	font-size: 35px;
+	font-family: 'Montserrat', sans-serif;
+	
+}

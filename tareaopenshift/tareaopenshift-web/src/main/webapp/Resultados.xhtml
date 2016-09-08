@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="contenido">
+
+		<h:form id="form" prependId="false">
+
+
+			<h1>Resultados</h1>
+
+			<p:outputLabel value="#{msj['resultado.facultad']}" />
+			<p:selectOneMenu id="facultadSo" value="#{resultadoWeb.facultadEnti}"
+				converter="#{facultadConverter}">
+
+				<f:selectItems value="#{resultadoWeb.facultad}" var="facul"
+					itemValue="#{facul}" itemLabel="#{facul.nombre}" />
+
+			</p:selectOneMenu>
+
+			<p:outputLabel value="#{msj['resultado.programa']}" />
+			<p:selectOneMenu id="programaSo" value="#{resultadoWeb.programaEnti}"
+				converter="#{programaConverter}">
+
+				<f:selectItems value="#{resultadoWeb.programa}" var="programa"
+					itemValue="#{programa}" itemLabel="#{programa.nombrePrograma}" />
+
+			</p:selectOneMenu>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

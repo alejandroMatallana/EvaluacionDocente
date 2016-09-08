@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="contenido">
+
+		<h:form id="form" prependId="false">
+
+			<h1>Inicio de sesion</h1>
+
+			<br></br>
+			<p:outputLabel value="#{msj['inicio.user']}" for="user" />
+			<p:inputText value="#{SesionBean.nombreUser}" id="user"
+				required="true" placeholder="Usuario" />
+			
+
+			<br></br>
+			<p:outputLabel value="#{msj['inicio.clave']}" for="password" />
+			<p:inputText value="#{SesionBean.password}" id="password"
+				placeholder="Password" required="true" />
+			
+
+
+			<p:commandButton value="#{msj['inicio.login']}"
+				action="#{SesionBean.login()}" />
+
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head></h:head>
+<h:body>
+	
+	<h:form>
+		<h1 class="titulo">Evaluación Docente EAM</h1>
+
+		<p:tabMenu activeIndex="#{param.i}" rendered="#{SesionBean.logged}" >
+			<c:if test="#{SesionBean.accesos.size()>0}">
+			<c:forEach items="#{SesionBean.accesos}" var="acce">
+			<p:menuitem value="#{acce.nombre}" url="#{acce.url}">
+			</p:menuitem>
+			
+			</c:forEach>
+			
+			</c:if>
+			
+			<p:menuitem value="Cerrar Sesion" action="#{SesionBean.LogOut()}"
+			 icon="ui-icon-person" rendered="#{SesionBean.logged}">
+				
+			</p:menuitem>
+			
+			
+		</p:tabMenu>
+
+	</h:form>
+</h:body>
+</html>

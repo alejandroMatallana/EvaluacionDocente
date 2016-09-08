@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="contenido">
+
+		<h:form id="form" prependId="false">
+			<h1>Registro usuario</h1>
+			<!-- 	<h:panelGrid columns="4" id="cotenedor">  -->
+			<h:outputLabel value="#{msj['pagina.cabecera']}" />
+
+			<br />
+			<p:outputLabel value="#{msj['pagina.nombre']}" for="nombre" />
+			<p:inputText value="#{usuarioWeb.nombre}" id="nombre" required="true"
+			    placeholder="Nombre" validator="campoLetra" />
+			<p:message for="nombre" style="color:blue" />
+			<br />
+
+			<p:outputLabel value="#{msj['pagina.apellido']}" for="apellido" />
+			<p:inputText value="#{usuarioWeb.apellido}" id="apellido"
+				required="true" placeholder="Apellido" validator="campoLetra" />
+			<p:message for="apellido" style="color:blue" />
+			<br />
+
+			<p:outputLabel value="#{msj['pagina.cedula']}" for="cedula" />
+			<p:inputText value="#{usuarioWeb.id}" id="cedula" required="true"
+				placeholder="Cedula" validator="campos" />
+			<p:message for="cedula" style="color:red" />
+
+
+			<br />
+			<p:outputLabel value="#{msj['pagina.usuario']}" for="usuario" />
+			<p:inputText value="#{usuarioWeb.user}" id="usuario" required="true"
+				p:placeholder="Usuario" />
+
+			<p:outputLabel value="#{msj['pagina.contrasenia']}" for="contrasenia" />
+			<h:inputSecret value="#{usuarioWeb.password}" id="contrasenia"
+				required="true" p:placeholder="Contraseña" />
+
+			<p:outputLabel value="#{msj['pagina.usuario']}" for="comboUsuario" />
+
+			<p:selectOneMenu id="comboUsuario"
+				value="#{usuarioWeb.usuarioSeleccionado}">
+
+
+				<f:selectItem itemValue="0" itemLabel="Coordinador" />
+				<f:selectItem itemValue="1" itemLabel="Decano" />
+
+				<f:ajax event="change" render="panel" execute="@this"
+					listener="#{usuarioWeb.cargarFacultadPrograma()}" />
+			</p:selectOneMenu>
+
+			<h:panelGroup id="panel" columns="4">
+
+				<p:outputLabel value="Facultad" />
+				<p:selectOneMenu id="facultadSo" value="#{usuarioWeb.facultadEnti}"
+					converter="#{facultadConverter}"
+					rendered="#{usuarioWeb.usuarioSelecFacul()}">
+
+					<f:selectItems value="#{usuarioWeb.facultad}" var="facul"
+						itemValue="#{facul}" itemLabel="#{facul.nombre}" />
+
+				</p:selectOneMenu>
+
+
+				<p:outputLabel value="Programa" />
+				<p:selectOneMenu id="programaSo" value="#{usuarioWeb.programaEnti}"
+					converter="#{programaConverter}"
+					rendered="#{usuarioWeb.usuarioSelecProgra()}">
+
+					<f:selectItems value="#{usuarioWeb.programa}" var="pro"
+						itemValue="#{pro}" itemLabel="#{pro.nombrePrograma}" />
+
+				</p:selectOneMenu>
+			</h:panelGroup>
+
+			<!--  </h:panelGrid> -->
+			<br />
+			<br />
+			<p:commandButton action="#{usuarioWeb.crear()}" id="crearUsu"
+				value="#{msj['pagina.crear']}" update="form" />
+
+		</h:form>
+	</ui:define>
+</ui:composition>
