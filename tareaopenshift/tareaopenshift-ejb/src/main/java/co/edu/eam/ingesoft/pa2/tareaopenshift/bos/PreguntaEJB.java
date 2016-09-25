@@ -4,6 +4,7 @@
 package co.edu.eam.ingesoft.pa2.tareaopenshift.bos;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Remote;
@@ -34,6 +35,15 @@ public class PreguntaEJB extends EJBGenerico<Pregunta> implements PreguntaRemote
 	 */
 	public void crear(Pregunta pregunta) {
 		dao.crear(pregunta);
+	}
+
+	/**
+	 * Metodo para listar todas las preguntas que hay
+	 */
+	@Override
+	public List<Pregunta> listarPreguntas() {
+		// TODO Auto-generated method stub
+		return dao.ejecutarNamedQuery(Pregunta.LISTA_PREGUNTAS);
 	}
 
 }

@@ -15,6 +15,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import co.edu.eam.ingesoft.pa2.tareaopenshift.bos.UsuarioEJB;
+import co.edu.eam.ingesoft.pa2.tareaopenshift.bos.WsdlEJB;
 import co.edu.eam.ingesoft.pa2.tareaopenshift.dto.RespuestaDTO;
 import co.edu.eam.ingesoft.pa2.tareaopenshift.persistencia.entidades.Usuario;
 
@@ -23,10 +24,12 @@ import co.edu.eam.ingesoft.pa2.tareaopenshift.persistencia.entidades.Usuario;
  *
  */
 @Path("/usuario")
-public class ClienteRest {
+public class UsuarioRest {
 
 	@EJB
 	private UsuarioEJB usuarioEJB;
+	
+	
 	
 	@GET
 	@Path("/buscarUsuario")
@@ -41,7 +44,7 @@ public class ClienteRest {
 		return new RespuestaDTO(u);
 	}
 
-	public ClienteRest() {
+	public UsuarioRest() {
 		
 	}
 	
@@ -65,4 +68,6 @@ public class ClienteRest {
 //		List<Usuario> listaUsu = usuarioEJB.listar();
 //		return new RespuestaDTO(listaUsu);
 //	}
+	
+
 }

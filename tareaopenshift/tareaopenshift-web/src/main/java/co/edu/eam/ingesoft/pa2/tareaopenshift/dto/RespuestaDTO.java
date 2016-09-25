@@ -21,16 +21,12 @@ public class RespuestaDTO {
 	codigo = "123";
 	}
 	
-	
-
 	public RespuestaDTO(Object obj, String mensaje, String codigo) {
 		super();
 		this.obj = obj;
 		this.mensaje = mensaje;
 		this.codigo = codigo;
 	}
-
-
 
 	/**
 	 * @return the obj

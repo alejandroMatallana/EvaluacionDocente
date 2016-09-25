@@ -10,7 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import co.edu.eam.ingesoft.pa2.tareaopenshift.seguridad.Rol;
 
 /**
  * @author Alejandro
@@ -18,8 +22,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Preguntas")
+@NamedQueries({
+@NamedQuery(name=Pregunta.LISTA_PREGUNTAS, query="SELECT p FROM Pregunta p")
+})
 public class Pregunta implements Serializable {
 
+	public static final String LISTA_PREGUNTAS = "Pregunta.listar";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idPregunta")
