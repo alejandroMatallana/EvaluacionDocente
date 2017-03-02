@@ -24,7 +24,10 @@ public class AsignaturaEJB extends EJBGenerico<Asignatura> implements Asignatura
 	@Override
 	public Class getClase() {
 		// TODO Auto-generated method stub
-		return Asignatura.class;
+		
+		
+		//ERRORRRRRRRRRRRRRRRRRRRRRRRRR
+		return Asignatura.class
 	
 
 	/**
