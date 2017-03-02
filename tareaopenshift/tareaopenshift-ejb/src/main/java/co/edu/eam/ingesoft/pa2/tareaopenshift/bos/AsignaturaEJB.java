@@ -26,8 +26,10 @@ public class AsignaturaEJB extends EJBGenerico<Asignatura> implements Asignatura
 		// TODO Auto-generated method stub
 		
 		
+		
+		
 		//ERRORRRRRRRRRRRRRRRRRRRRRRRRR
-		return Asignatura.class
+		return Asignatura.class----
 	
 
 	/**
