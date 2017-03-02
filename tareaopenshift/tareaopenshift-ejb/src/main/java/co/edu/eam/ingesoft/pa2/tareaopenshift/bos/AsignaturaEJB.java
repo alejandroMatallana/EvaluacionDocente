@@ -25,10 +25,11 @@ public class AsignaturaEJB extends EJBGenerico<Asignatura> implements Asignatura
 	public Class getClase() {
 		// TODO Auto-generated method stub
 		return Asignatura.class;
-	}
+	
 
 	/**
-	 * Metodo para crear una asignatura
+	 * Metodo para crear una asignatura XXXXXXX
+	 * jajajja
 	 */
 	public void crear(Asignatura asignatura) throws ExcepcionNegocio {
 		if (buscar(asignatura.getIdAsignatura()) != null) {
@@ -39,6 +40,9 @@ public class AsignaturaEJB extends EJBGenerico<Asignatura> implements Asignatura
 
 	}
 
+	/**
+	 * Buscar jajajja
+	 */
 	public Asignatura buscar(Object pk) {
 		return dao.buscar(pk);
 	}
